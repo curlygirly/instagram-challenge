@@ -13,7 +13,12 @@ class PhotosController < ApplicationController
   end
 
   def create
-    Photo.create(photo_params)
+    @photo = Photo.create(photo_params)
     redirect_to '/photos'
   end
+
+  def show
+    @photo = Photo.find(params[:id])
+  end
+
 end
